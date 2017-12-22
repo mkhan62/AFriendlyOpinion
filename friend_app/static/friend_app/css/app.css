@@ -3,9 +3,19 @@
   margin: 0;
 }
 canvas {
+  position: absolute;
   display: block;
+  background-color: #026491;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
 }
 
-body {
-  background-color: #026491;
+
+.vertical-center {
+  min-height: 50vh;
+  margin-top: 30vh;
+  position: static;
+  display: flex;
+  align-items: center;
 }
