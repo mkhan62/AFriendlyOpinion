@@ -1,5 +1,13 @@
 from django.shortcuts import render
-
+from friend_app.models import Sentiment
+from friend_app.forms import SentimentForm
 # Create your views here.
 def index(request):
-    return render(request, 'friend_app/base.html', {})
+    form = SentimentForm()
+    if request.method == 'POST':
+        form = SentimentForm(request.POST)
+
+        if form.is_valid():
+            form.save(commit=False)
+            print(form.cleaned_data)
+    return render(request, 'friend_app/base.html', {'form': form})

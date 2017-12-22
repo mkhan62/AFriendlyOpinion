@@ -10,7 +10,11 @@
     <canvas id="c"></canvas>
     <div class="container">
       <div class="jumbotron vertical-center" >
-        <h1>Hey! I am your BFF :)</h1>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" name="btn btn-primary" value="Submit">
+        </form>
     </div>
 
     </div>
