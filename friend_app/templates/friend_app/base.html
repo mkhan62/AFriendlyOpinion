@@ -1,13 +1,13 @@
-
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="bag.css">
+    <link rel="stylesheet" href="{% static "friend_app/css/app.css" %}">
   <body>
-<canvas id="c"></canvas>
+    <canvas id="c"></canvas>
 
   </body>
-  <script type="text/javascript" src="sph.js"></script>
+  <script type="text/javascript" src="{% static "friend_app/js/app.js" %}"></script>
 </html>
