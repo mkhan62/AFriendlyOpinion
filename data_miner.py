@@ -8,6 +8,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report
 
 
+
 def frame_gen(data1, data2, data3):
     col = ['id', 'text', 'sentiment', 'intensity']
     data1_frame = pd.read_csv(data1, sep='\t', names=col)
@@ -26,10 +27,10 @@ def preprocess(line):
     return no_stop
 
 
-anger_data = frame_gen('anger1.txt', 'anger2.txt', 'anger3.txt')
-fear_data = frame_gen('fear1.txt', 'fear2.txt', 'fear3.txt')
-joy_data = frame_gen('joy1.txt', 'joy2.txt', 'joy3.txt')
-sadness_data = frame_gen('sadness1.txt', 'sadness2.txt', 'sadness3.txt')
+anger_data = frame_gen('datasets/anger1.txt', 'datasets/anger2.txt', 'datasets/anger3.txt')
+fear_data = frame_gen('datasets/fear1.txt', 'datasets/fear2.txt', 'datasets/fear3.txt')
+joy_data = frame_gen('datasets/joy1.txt', 'datasets/joy2.txt', 'datasets/joy3.txt')
+sadness_data = frame_gen('datasets/sadness1.txt', 'datasets/sadness2.txt', 'datasets/sadness3.txt')
 
 all_list = [anger_data, fear_data, joy_data, sadness_data]
 combined_frame = pd.concat(all_list)
