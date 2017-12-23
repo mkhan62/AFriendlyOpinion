@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'friend_app'
+    'friend_app',
+    'bootstrap3'
 ]
 
 MIDDLEWARE = [

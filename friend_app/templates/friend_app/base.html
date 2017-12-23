@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 {% load staticfiles %}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
 <html>
   <head>
     <meta charset="utf-8">
@@ -12,7 +20,7 @@
       <div class="jumbotron vertical-center" >
         <form method="post">
           {% csrf_token %}
-          {{ form.as_p }}
+          {% bootstrap_form form %}
           <input type="submit" name="btn btn-primary" value="Submit">
         </form>
     </div>
