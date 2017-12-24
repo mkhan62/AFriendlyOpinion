@@ -2,7 +2,6 @@ import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'AFriendsOpinion.settings')
 import django
 django.setup()
-import data_miner as dm
 from friend_app.models import Sentiment
 import pandas as pd
 

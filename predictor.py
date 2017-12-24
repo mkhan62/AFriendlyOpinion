@@ -43,9 +43,10 @@ class Predictor:
         return model.predict(text)
 
     def predict_intensity(self, text):
-        y = y.apply(lambda x: round(x,1))
+        self.y = self.y.apply(lambda x: round(x,1)).apply(str)
         model = self.pipeline.fit(self.X, self.y)
-        return model.predict(text)
+        prediction = model.predict(text)
+        return prediction
 
 
 
