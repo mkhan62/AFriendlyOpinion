@@ -20,7 +20,7 @@
         <form method="post">
           {% csrf_token %}
           {% bootstrap_form form %}
-          <input type="submit" name="btn btn-primary" value="Submit">
+          <input type="submit" name="btn btn-primary" value="Submit" href="{% url 'friend_app:loader' %}"">
         </form>
       </div>
   </body>

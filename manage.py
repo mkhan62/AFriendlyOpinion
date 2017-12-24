@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+from predictor import Predictor
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "AFriendsOpinion.settings")
