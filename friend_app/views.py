@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from friend_app.models import Sentiment
 from friend_app.forms import SentimentForm
+from django.views.generic import View, TemplateView, DetailView
 import pandas as pd
 import pickle
 import os
@@ -14,11 +15,13 @@ if os.path.getsize('imodel.pkl') > 0:
     intensity_model = pickle.load(intensity_model_pkl)
 
 
-def index(request):
-    return render(request, 'friend_app/index.html')
+class IndexView(TemplateView):
+    template_name = 'friend_app/index.html'
 
-def loader(request):
-    return render(request, 'friend_app/loader.html')
+
+class OutputView(TemplateView):
+    template_name = 'friend_app/output_result.html'
+
 
 def entry_form(request):
     form = SentimentForm()
@@ -28,15 +31,10 @@ def entry_form(request):
         if form.is_valid():
             form.save(commit=False)
             text = form.cleaned_data['text']
-            # X, y, z = dataset_access()
-            # model_category = Predictor(X=X,y=z)
-            # predicted_category = model_category.predict_category(text=[text])
-            # model_instensity = Predictor(X=X, y=y)
-            # predicted_intensity = model_instensity.predict_intensity(text=[text])
             sentiment = category_model.predict([text])
             intensity = intensity_model.predict([text])
-            
-            print("The predicted category is: {}".format(sentiment))
-            print("predicted intensity is: {}".format(intensity))
+            print("The predicted category is: {}".format(sentiment[0]))
+            print("predicted intensity is: {}".format(intensity[0]))
+            return redirect('friend_app:output_result',)
 
     return render(request, 'friend_app/entry_form.html', {'form': form})
