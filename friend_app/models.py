@@ -7,4 +7,7 @@ class Sentiment(models.Model):
     intensity = models.FloatField()
 
     def __str__(self):
-        return self.text
+        # return ('%s\t%s\t%s' % (self.text, self.category, self.intensity))
+        return ('%s'%({
+        'text': self.text, 'category': self.category, 'intensity': self.intensity
+        }))

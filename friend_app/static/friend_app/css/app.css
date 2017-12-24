@@ -19,3 +19,38 @@ canvas {
   display: flex;
   align-items: center;
 }
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6em;
+  height: 6em;
+  transform: translate(-50%, -50%);
+  border: 0.375em dashed #E7DFE7;
+  border-radius: 50%;
+}
+
+.spinner::before,
+.spinner::after {
+  content: '';
+  position: absolute;
+  top: -0.375em;
+  left: -0.375em;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0.375em solid transparent;
+  border-top-color: #FC4D4D;
+  border-radius: 50%;
+  animation: spin 1.25s ease infinite;
+}
+
+.spinner::after {
+  border-top-color: transparent;
+  border-bottom-color: #4EA1FC;
+}
+
+@keyframes spin {
+  100% { transform: rotate(1080deg); }
+}
