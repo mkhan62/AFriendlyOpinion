@@ -18,6 +18,9 @@ def dataset_access():
     return (X, y, z)
 
 def index(request):
+    return render(request, 'friend_app/index.html')
+
+def entry_form(request):
     form = SentimentForm()
     if request.method == 'POST':
         form = SentimentForm(request.POST)
@@ -33,4 +36,4 @@ def index(request):
             print("The predicted category is: {}".format(predicted_category))
             print("predicted intensity is: {}".format(predicted_intensity))
 
-    return render(request, 'friend_app/base.html', {'form': form})
+    return render(request, 'friend_app/entry_form.html', {'form': form})
