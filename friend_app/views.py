@@ -22,6 +22,9 @@ class IndexView(TemplateView):
 class OutputView(TemplateView):
     template_name = 'friend_app/output_result.html'
 
+class ThankView(TemplateView):
+    template_name = 'friend_app/thank.html'
+
 
 def entry_form(request):
     form = SentimentForm()

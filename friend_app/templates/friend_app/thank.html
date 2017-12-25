@@ -11,11 +11,9 @@
     <canvas id="c"></canvas>
     <div class="container">
       <div class="jumbotron" align='center' style="display:none;" id="myDiv" class="animate-bottom">
-        <h3>According to me what you typed is purely out of {{category}}</h3>
-        <h3>As a matter of fact, on a scale of 0 to 1 with 1 being feeling strongly, you are on a {{intensity}}</h3>
-        <a href="{% url 'friend_app:thank' %}"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
-        <a href="{% url 'index' %}"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></a>
-
+        <h3>Thankyou, hope that I was helpful!</h3>
+        <h3>Oneday, I'll be able to learn just like your bestfriend!</h3>
+        <a href="{% url 'friend_app:entry_form' %}" class="btn btn-primary">Let's do it again!</a>
       </div>
     </div>
     <div id="loader"></div>
