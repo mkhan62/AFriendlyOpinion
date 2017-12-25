@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpRequest
 from friend_app.models import Sentiment
 from friend_app.forms import SentimentForm
 from django.views.generic import View, TemplateView, DetailView
@@ -22,9 +23,6 @@ class IndexView(TemplateView):
 class OutputView(TemplateView):
     template_name = 'friend_app/output_result.html'
 
-class ThankView(TemplateView):
-    template_name = 'friend_app/thank.html'
-
 
 def entry_form(request):
     form = SentimentForm()
@@ -38,6 +36,11 @@ def entry_form(request):
             intensity = intensity_model.predict([text])
             print("The predicted category is: {}".format(sentiment[0]))
             print("predicted intensity is: {}".format(intensity[0]))
+            # model = Sentiment.objects.create(text=text, category=sentiment[0], intensity=intensity[0])
             return render(request,'friend_app/output_result.html',{'text': text, 'category':sentiment[0], 'intensity': intensity[0]})
 
     return render(request, 'friend_app/entry_form.html', {'form': form})
+
+
+def thankyou(request):
+    return render(request, 'friend_app/thank.html')

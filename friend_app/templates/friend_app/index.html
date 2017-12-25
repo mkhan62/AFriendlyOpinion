@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 {% load bootstrap3 %}
-
+<!--
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
 {# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
+{% bootstrap_messages %} -->
 <html>
   <head>
     <meta charset="utf-8">
-    <title>A Friendly Opinion</title>
-    <link rel="stylesheet" href="{% static "friend_app/css/app.css" %}">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'friend_app/css/app.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <body onload="myFunction()">
+  <body onload="myFunction()" style="margin:0;">
     <canvas id="c"></canvas>
-    <div class="container">
-      <div style="display:none;" id="myDiv" class="animate-bottom">
-          <a id="go" href="{% url 'friend_app:entry_form' %}" type="button" class="btn btn-primary btn-lg btn-block"><h1>Let's Go!</h1></a>
+    <div id="loader"></div>
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+      <div class="container base">
+        <h2>Hi there!</h2>
+        <h3>My name is khan and I can deuce how you're feeling by your texts!</h3>
+        <h3>We all look for that one friend's opinion before we send an important message/email/text</h3>
+        <h3>to our crush...hehe.. or boss or recruiter...anyone</h3>
+        <h3>Well, I am trained to be that friend of yours!</h3>
+        <h3>I'll try to tell you if you seem too angry, desperate or etc in your text and let's see if I am right.</h3>
+        <h3>I'd apologise beforehand if I am wrong...I am still learning and you are helping me!</h3>
+        <a id="go" href="{% url 'friend_app:entry_form' %}" type="button" class="btn btn-outline-secondary btn-lg"><h1><em>Let's Go?!</em></h1></a>
       </div>
     </div>
-    <div id="loader"></div>
+
+
   </body>
-  <script type="text/javascript" src="{% static "friend_app/js/app.js" %}"></script>
+  <script type="text/javascript" src="{% static 'friend_app/js/app.js' %}"></script>
 </html>
