@@ -22,6 +22,7 @@ class IndexView(TemplateView):
 
 class OutputView(TemplateView):
     template_name = 'friend_app/output_result.html'
+    
 
 
 def entry_form(request):
@@ -36,7 +37,6 @@ def entry_form(request):
             intensity = intensity_model.predict([text])
             print("The predicted category is: {}".format(sentiment[0]))
             print("predicted intensity is: {}".format(intensity[0]))
-            # model = Sentiment.objects.create(text=text, category=sentiment[0], intensity=intensity[0])
             return render(request,'friend_app/output_result.html',{'text': text, 'category':sentiment[0], 'intensity': intensity[0]})
 
     return render(request, 'friend_app/entry_form.html', {'form': form})
