@@ -3,21 +3,23 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Loading</title>
-      <link rel="stylesheet" href="{% static "friend_app/css/app.css" %}">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  </head>
+    <title></title>
+    <link rel="stylesheet" href="{% static 'friend_app/css/app.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <body onload="myFunction()">
-    <!-- <div class="container"><canvas id="c"></canvas></div> -->
-    <div class="container vertical-center">
-      <div class="jumbotron" style="display:none;" id="myDiv" class="animate-bottom">
-        <h3>According to me what you typed is pure <em>{{category}}</em></h3>
-        <h3>As a matter of fact, on a scale of 0 to 1 with 1 being feeling strongly, you are on a {{intensity}}</h3>
-        <a href="{% url 'friend_app:thank' %}"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
-        <a href="{% url 'index' %}"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></a>
+  <body onload="myFunction()" style="margin:0;">
+    <canvas id="c"></canvas>
+    <div id="loader"></div>
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+        <div class="container base output">
+          <div class="jumbotron-fluid">
+            <h3>According to me what you typed is pure <em>{{category}}</em></h3>
+            <h3>As a matter of fact, on a scale of 0 to 1 with 1 being feeling strongly, you are on a {{intensity}}</h3>
+            <a href="{% url 'friend_app:thank' %}"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
+            <a href="{% url 'index' %}"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></a>
+          </div>
       </div>
     </div>
-    <div id="loader"></div>
   </body>
-  <script type="text/javascript" src="{% static "friend_app/js/app.js" %}"></script>
+  <script type="text/javascript" src="{% static 'friend_app/js/app.js' %}"></script>
 </html>
