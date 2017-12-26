@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-{% load bootstrap3 %}
+
 
 <html>
   <head>
@@ -16,7 +16,7 @@
         <div class="container base">
         <form method="post">
           {% csrf_token %}
-          {% bootstrap_form form %}
+          {{ form.as_p }}
           <input type="submit" name="btn btn-primary btn-lg" value="Submit">
         </form>
       </div>
