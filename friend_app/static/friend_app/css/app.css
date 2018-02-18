@@ -4,10 +4,11 @@
 }
 
 
-.base{
-  color: white;
-}
+.input[type="text"], textarea {
 
+  background-color : #d1d1d1;
+
+}
 * {
   padding: 0;
   margin: 0;
